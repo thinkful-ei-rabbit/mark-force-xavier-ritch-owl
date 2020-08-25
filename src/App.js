@@ -10,13 +10,14 @@ function App(props) {
       {props.store.map((user) => {
         if(user.inSession) {
           {console.log(user)}
-          return <div class="userWrapper"> 
+          return (<div class="userWrapper"> 
           <Users 
             name = {user.name}
             status = {user.inSession}
           />
-          </div>
+          </div> )
         }
+        return ''
       })
     }
     </div>
