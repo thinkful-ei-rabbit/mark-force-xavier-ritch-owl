@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import Users from './Users'
 import './App.css';
 
-function App() {
+function App(props) {
+
+  console.log(props.store)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {props.store.map((user) => {
+        if(user.inSession) {
+          {console.log(user)}
+          return <div class="userWrapper"> 
+          <Users 
+            name = {user.name}
+            status = {user.inSession}
+          />
+          </div>
+        }
+      })
+    }
     </div>
   );
 }
